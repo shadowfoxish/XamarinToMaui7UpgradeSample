@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="100" android:versionName="1.1.0" package="com.airlinehyd.InventoryFoxApp" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="200" android:versionName="2.0.0" package="com.airlinehyd.InventoryFoxApp" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="28" android:targetSdkVersion="33" />
 	<application android:label="InventoryFox" android:theme="@style/MainTheme" android:icon="@mipmap/ic_launcher_round"></application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
