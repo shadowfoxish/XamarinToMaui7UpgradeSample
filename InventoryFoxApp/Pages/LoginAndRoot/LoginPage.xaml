@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- For navigational reasons, the login page should always be pushed 
+	onto another page. When login succeeds, it will automatically pop itself -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InventoryFoxApp.Pages.LoginPage"
+			 Title="Inventory Fox" 
+			 Padding="0, 0">
+	<AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+		<StackLayout Padding="10,0" VerticalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1"
+			AbsoluteLayout.LayoutFlags="All">
+			<Grid Margin="10,0,10,0" VerticalOptions="FillAndExpand">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="50"></RowDefinition>
+					<RowDefinition Height="44"></RowDefinition>
+					<RowDefinition Height="44"></RowDefinition>
+					<RowDefinition Height="100"></RowDefinition>
+					<RowDefinition Height="*"></RowDefinition>
+					<RowDefinition Height="44"></RowDefinition>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*"></ColumnDefinition>
+					<ColumnDefinition Width="2*"></ColumnDefinition>
+				</Grid.ColumnDefinitions>
+
+				<Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Style="{DynamicResource TitleStyle}">Login</Label>
+				<Label Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center">Username</Label>
+				<Entry Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center" Placeholder="Scan or Type" Text="{Binding Path=Username}"></Entry>
+
+				<Label Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center">PIN</Label>
+				<Entry Grid.Row="2" Grid.Column="1" VerticalTextAlignment="Center" IsPassword="True" MaxLength="6" Text="{Binding Path=Pin}"></Entry>
+
+				<Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="Login" HeightRequest="75" Margin="20,20" Command="{Binding LoginCommand}"></Button>
+
+				<Image Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Source="logo" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,10" >
+					<Image.GestureRecognizers>
+						<TapGestureRecognizer Tapped="ImageButton_Clicked"/>
+					</Image.GestureRecognizers>
+				</Image>
+				<Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="End" Text="{Binding Path=Version, StringFormat='VERSION {0}'}"></Label>
+			</Grid>
+		</StackLayout>
+		<StackLayout IsVisible="{Binding Path=IsWorking}"
+			AbsoluteLayout.LayoutBounds="0,0,1,1"
+			AbsoluteLayout.LayoutFlags="All"
+			BackgroundColor="Black" Opacity="0.9" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+			<ActivityIndicator IsRunning="{Binding Path=IsWorking}" VerticalOptions="CenterAndExpand"></ActivityIndicator>
+		</StackLayout>
+	</AbsoluteLayout>
+</ContentPage>
+
